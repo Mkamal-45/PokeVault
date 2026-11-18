@@ -1,0 +1,24 @@
+# Compiled Java class files & archives
+*.class
+*.jar
+*.war
+*.ear
+bin/
+out/
+target/
+build/
+
+# Local database files (keep generated test/demo DBs out of version control)
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE & OS files
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+.DS_Store
+Thumbs.db
