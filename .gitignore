@@ -22,3 +22,5 @@ build/
 .classpath
 .DS_Store
 Thumbs.db
+# Keep third-party JDBC drivers inside lib/tracked for us.
+!lib/*.jar
