@@ -26,7 +26,7 @@ public class ValuationEngine {
 
     public ValuationEngine(InventoryDAO inventoryDAO) {
         if (inventoryDAO ==null) {throw new IllegalArgumentException("InventoryDAO cannot be null.");}
-        this.inventoryDAO = inventoryDAO;
+        this.inventoryDAO= inventoryDAO;
     }
 
     public record PortfolioSummary(
@@ -45,10 +45,6 @@ public class ValuationEngine {
         return calculateSummary(vaultItems);
     }
 
-    /**
-     * Pure calculation method operating on an ArrayList of InventoryItems.
-     * Kept separate from database I/O so financial math is deterministic and easy to verify.
-     */
     public PortfolioSummary calculateSummary(List<InventoryItem> items) {
         int uniqueEntries =items.size();
         int totalPhysicalCards =0;
@@ -61,7 +57,6 @@ public class ValuationEngine {
             totalCostBasis= totalCostBasis.add(item.getTotalCostBasis());
             totalNetWorth= totalNetWorth.add(item.getTotalCurrentValue());
 
-            // Track the single card with the highest condition-adjusted unit market value
             if (topCard==null || item.getUnitCurrentValue().compareTo(topCard.getUnitCurrentValue()) > 0) {
                 topCard=item;
             }
